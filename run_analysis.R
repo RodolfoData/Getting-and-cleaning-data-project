@@ -25,18 +25,18 @@ DAST<-read.table("project1/UCI HAR Dataset/test/subject_test.txt",header = F)
 DAFTr<-read.table("project1/UCI HAR Dataset/train/X_train.txt",header = F) 
 DAFT<-read.table("project1/UCI HAR Dataset/test/X_test.txt",header = F)
 
-#3 Combine by rows the below datasets DA = "DataActivity" DS = "DataSubject" DF="DataFeatures" 
+#3 Combine by rows the datasets above DA = "DataActivity" DS = "DataSubject" DF="DataFeatures" 
 
 DA<-rbind(DATr,DAT) 
 DS<-rbind(DASTr,DAST)
 DF<-rbind(DAFTr,DAFT)
 
-#3.1The variables of the bellow tables don't have names, so, i'll give ones.
+#3.1The variables of the above tables don't have names, so, i'll give ones.
 
 names(DA)<-c("activity") 
 names(DS)<-c("subject") 
 
-#3.1.1 The names of the features lies in the archive: "features.txt", so,
+#3.1.1 The names of the features lies on the archive: "features.txt", so,
 #I'll create a character variable: 
 
 DFnames<-read.table("project1/UCI HAR Dataset/features.txt",header = F) 
@@ -44,7 +44,7 @@ head(DFnames)
 names(DF)<-DFnames$V2
 
 #4 Then I'll go to to combine these data sets by columns: 
-  DC1<-cbind(DS,DA) 
+DC1<-cbind(DS,DA) 
 D<-cbind(DF,DC1)
 
 #5 Obtain only the mean and standard deviation
